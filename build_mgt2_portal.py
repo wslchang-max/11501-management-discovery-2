@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os, glob
+
+# Python script to build 11501 管理探索二 18-week portal index.html & 整合18週課程平台.html
+
+html_content = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -1018,4 +1022,13 @@
         });
     </script>
 </body>
-</html>
+</html>"""
+
+dir_path = r"C:\Users\User\Desktop\115學年度\11501 管理探索二"
+with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+with open(os.path.join(dir_path, "整合18週課程平台.html"), "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Successfully generated 11501 管理探索二 Portal index.html & 整合18週課程平台.html!")
