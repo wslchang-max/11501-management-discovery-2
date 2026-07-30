@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理探索二｜18週課程平台</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: #ffffff;
+        --ink: #172033;
+        --muted: #667085;
+        --line: #d9e0ea;
+        --brand: #2457a6;
+        --brand-weak: #e9f0fb;
+        --accent: #0f8b6f;
+        --shadow: 0 12px 28px rgba(16, 24, 40, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background: var(--bg);
+        font-family: "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      }
+
+      .shell {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        background: var(--panel);
+        border-right: 1px solid var(--line);
+        padding: 18px 14px;
+      }
+
+      .course-title {
+        padding: 6px 8px 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .course-title h1 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .course-title p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .week-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px 0;
+      }
+
+      .week-button {
+        width: 100%;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink);
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 10px;
+        padding: 10px;
+        text-align: left;
+        font: inherit;
+      }
+
+      .week-button:hover {
+        background: #f2f5f9;
+      }
+
+      .week-button.active {
+        background: var(--brand-weak);
+        border-color: #b9ccec;
+        color: #173f7a;
+      }
+
+      .week-num {
+        align-self: start;
+        background: #edf2f7;
+        border-radius: 8px;
+        color: #344054;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 26px;
+        text-align: center;
+      }
+
+      .week-button.active .week-num {
+        background: var(--brand);
+        color: #ffffff;
+      }
+
+      .week-name {
+        min-width: 0;
+      }
+
+      .week-name strong {
+        display: block;
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .week-name span {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .viewer {
+        min-width: 0;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+      }
+
+      .viewer-bar {
+        min-height: 64px;
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 18px;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        backdrop-filter: blur(10px);
+      }
+
+      .viewer-title {
+        min-width: 0;
+      }
+
+      .viewer-title h2 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .viewer-title p {
+        margin: 3px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .action-button {
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+        color: var(--ink);
+        cursor: pointer;
+        font: inherit;
+        font-size: 14px;
+        padding: 8px 12px;
+        white-space: nowrap;
+      }
+
+      .action-button.primary {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #ffffff;
+      }
+
+      .frame-wrap {
+        min-height: 0;
+        padding: 14px;
+      }
+
+      iframe {
+        display: block;
+        width: 100%;
+        height: calc(100vh - 92px);
+        min-height: 640px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #0f172a;
+        box-shadow: var(--shadow);
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: relative;
+          height: auto;
+          max-height: 42vh;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .week-list {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .viewer-bar {
+          position: relative;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .actions {
+          justify-content: flex-start;
+        }
+
+        iframe {
+          height: 76vh;
+          min-height: 520px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .week-list {
+          grid-template-columns: 1fr;
+        }
+
+        .frame-wrap {
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="course-title">
+          <h1>管理探索二</h1>
+          <p>115學年度上學期｜18週課程</p>
+        </div>
+        <nav class="week-list" id="weekList" aria-label="週次選單"></nav>
+      </aside>
+
+      <main class="viewer">
+        <header class="viewer-bar">
+          <div class="viewer-title">
+            <h2 id="currentTitle">第一週</h2>
+            <p id="currentSubtitle">資訊爆炸時代的財經素養</p>
+          </div>
+          <div class="actions">
+            <button class="action-button" type="button" id="prevWeek">上一週</button>
+            <button class="action-button" type="button" id="nextWeek">下一週</button>
+            <button class="action-button primary" type="button" id="openOriginal">開啟原始頁</button>
+          </div>
+        </header>
+
+        <section class="frame-wrap" aria-label="投影片內容">
+          <iframe
+            id="slideFrame"
+            title="投影片內容"
+            src="第一週_資訊爆炸時代的財經素養.html"
+            allowfullscreen
+          ></iframe>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const weeks = [
+        { week: 1, title: "資訊爆炸時代的財經素養", file: "第一週_資訊爆炸時代的財經素養.html" },
+        { week: 2, title: "物價通膨與實質購買力", file: "第二週_物價通膨與實質購買力.html" },
+        { week: 3, title: "利率央行貨幣政策與資產價格", file: "第三週_利率央行貨幣政策與資產價格.html" },
+        { week: 4, title: "股市入門與企業價值估算", file: "第四週_股市入門與企業價值估算.html" },
+        { week: 5, title: "ETF狂熱主動型ETF與被動投資", file: "第五週_ETF狂熱主動型ETF與被動投資.html" },
+        { week: 6, title: "數位金融高利活存與銀行業變革", file: "第六週_數位金融高利活存與銀行業變革.html" },
+        { week: 7, title: "個人外匯匯率變動與國際貿易", file: "第七週_個人外匯匯率變動與國際貿易.html" },
+        { week: 8, title: "期中學習成果檢核與實戰個案總複習", file: "第八週_期中學習成果檢核與實戰個案總複習.html" },
+        { week: 9, title: "保險基礎風險管理與個人保障規劃", file: "第九週_保險基礎風險管理與個人保障規劃.html" },
+        { week: 10, title: "不動產房地產與租買決策財務學", file: "第十週_不動產房地產與租買決策財務學.html" },
+        { week: 11, title: "個人綜合所得稅節稅規劃與報稅實務", file: "第十一週_個人綜合所得稅節稅規劃與報稅實務.html" },
+        { week: 12, title: "個人與家庭資產負債表現金流管理與生涯理財規劃", file: "第十二週_個人與家庭資產負債表現金流管理與生涯理財規劃.html" },
+        { week: 13, title: "半導體產業護國神山台積電與台灣科技供應鏈", file: "第十三週_半導體產業護國神山台積電與台灣科技供應鏈.html" },
+        { week: 14, title: "生成式AI革命人工智慧產業鏈與未來職場轉型", file: "第十四週_生成式AI革命人工智慧產業鏈與未來職場轉型.html" },
+        { week: 15, title: "綠色金融ESG永續投資與碳定價經濟學", file: "第十五週_綠色金融ESG永續投資與碳定價經濟學.html" },
+        { week: 16, title: "加密貨幣區塊鏈基礎Web3與數位資產風險", file: "第十六週_加密貨幣區塊鏈基礎Web3與數位資產風險.html" },
+        { week: 17, title: "期末專案發表實戰財經簡報與總評量", file: "第十七週_期末專案發表實戰財經簡報與總評量.html" },
+        { week: 18, title: "學期總結財經探索藍圖與大一新鮮人終身宣言", file: "第十八週_學期總結財經探索藍圖與大一新鮮人終身宣言.html" },
+      ];
+
+      const weekList = document.querySelector("#weekList");
+      const frame = document.querySelector("#slideFrame");
+      const currentTitle = document.querySelector("#currentTitle");
+      const currentSubtitle = document.querySelector("#currentSubtitle");
+      const prevWeek = document.querySelector("#prevWeek");
+      const nextWeek = document.querySelector("#nextWeek");
+      const openOriginal = document.querySelector("#openOriginal");
+      let currentIndex = 0;
+
+      function renderWeekList() {
+        weekList.innerHTML = weeks
+          .map((item, index) => `
+            <button class="week-button${index === currentIndex ? " active" : ""}" type="button" data-index="${index}">
+              <span class="week-num">W${String(item.week).padStart(2, "0")}</span>
+              <span class="week-name">
+                <strong>第${item.week}週</strong>
+                <span>${item.title}</span>
+              </span>
+            </button>
+          `)
+          .join("");
+      }
+
+      function setWeek(index) {
+        currentIndex = Math.max(0, Math.min(index, weeks.length - 1));
+        const item = weeks[currentIndex];
+        currentTitle.textContent = `第${item.week}週`;
+        currentSubtitle.textContent = item.title;
+        frame.src = item.file;
+        prevWeek.disabled = currentIndex === 0;
+        nextWeek.disabled = currentIndex === weeks.length - 1;
+        renderWeekList();
+      }
+
+      weekList.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-index]");
+        if (!button) return;
+        setWeek(Number(button.dataset.index));
+      });
+
+      prevWeek.addEventListener("click", () => setWeek(currentIndex - 1));
+      nextWeek.addEventListener("click", () => setWeek(currentIndex + 1));
+      openOriginal.addEventListener("click", () => {
+        window.open(weeks[currentIndex].file, "_blank", "noopener");
+      });
+
+      renderWeekList();
+      setWeek(0);
+    </script>
+  </body>
+</html>
