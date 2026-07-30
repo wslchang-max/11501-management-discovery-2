@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11501 管理探索二：財金蛙挖哇 | 18 週整合總覽平台 (Management Discovery II Portal)</title>
+    <title>11501 管理探索二：財金蛙挖哇 | 18 週雙語整合總覽平台</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,15 @@
             overflow-y: auto !important;
             height: auto !important;
             min-height: 100vh;
+        }
+
+        /* Strict Language Switcher Rules: 中文就是中文、英文就是英文 */
+        body.lang-zh .lang-en {
+            display: none !important;
+        }
+
+        body.lang-en .lang-zh {
+            display: none !important;
         }
 
         .portal-header {
@@ -371,6 +380,27 @@
             justify-content: center;
             gap: 8px;
         }
+
+        .lang-switch-btn {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch-btn:hover {
+            background: #10b981;
+            color: #0b0f19;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
     </style>
 </head>
 <body class="canva-theme dark-mode lang-zh">
@@ -380,15 +410,15 @@
         <div class="header-left">
             <div class="brand-logo">
                 <i class="fa-solid fa-frog glow-icon" style="color:#10b981;"></i>
-                <span class="brand-title">11501 管理探索二</span>
+                <span class="brand-title"><span class="lang-zh">11501 管理探索二</span><span class="lang-en">11501 Management Discovery II</span></span>
             </div>
             <div class="deck-title-container">
-                <h1 class="deck-title">財金蛙挖哇 18 週整合總覽平台</h1>
+                <h1 class="deck-title"><span class="lang-zh">財金蛙挖哇 18 週整合總覽平台</span><span class="lang-en">18-Week Curriculum Integration Portal</span></h1>
             </div>
         </div>
         <div class="header-right">
-            <button class="btn btn-secondary" id="langToggleBtn" title="Switch Language (中/EN)">
-                <i class="fa-solid fa-language"></i> <span id="langDisplay">中 / EN</span>
+            <button class="lang-switch-btn" id="langToggleBtn" title="切換語言 / Switch Language">
+                <i class="fa-solid fa-globe"></i> <span id="langDisplay">繁體中文 / English</span>
             </button>
             <a href="https://www.google.com/finance" target="_blank" class="btn btn-secondary" title="Google Finance Market Data">
                 <i class="fa-solid fa-chart-line"></i> <span class="lang-zh">財經數據庫</span><span class="lang-en">Google Finance</span>
@@ -404,10 +434,10 @@
         <div class="hero-badge-container">
             <span class="badge emi-badge"><i class="fa-solid fa-globe"></i> 100% EMI Dual-Language</span>
             <span class="badge esg-badge" style="background:rgba(16, 185, 129, 0.15); color:#34d399; border-color:rgba(16, 185, 129, 0.3);">
-                <i class="fa-solid fa-graduation-cap"></i> 大一新鮮人財經通識
+                <i class="fa-solid fa-graduation-cap"></i> <span class="lang-zh">大一新鮮人財經通識</span><span class="lang-en">Freshman Financial Literacy</span>
             </span>
             <span class="badge" style="background: rgba(127, 0, 255, 0.2); border: 1px solid rgba(127, 0, 255, 0.4); color: #c084fc;">
-                <i class="fa-solid fa-palette"></i> Canva 莫蘭迪視覺與 3 大小時 Modal
+                <i class="fa-solid fa-palette"></i> <span class="lang-zh">Canva 莫蘭迪視覺與 3 大小時 Modal</span><span class="lang-en">Canva Theme & 3-Hour Activity Modals</span>
             </span>
         </div>
         <h1 class="hero-title">
@@ -416,7 +446,7 @@
         </h1>
         <p class="hero-subtitle">
             <span class="lang-zh">專為大一新鮮人量身打造之生活化財經素養與理財探索全景課程！包含 18 週 540+ 頁雙語簡報卡片、畫布手繪書寫工具與 4,500+ 字深度 Word 教學手冊！</span>
-            <span class="lang-en">Designed for college freshmen. Featuring 18-week dual-language interactive slides, digital whiteboards, and 4,500+ word Word facilitation guides.</span>
+            <span class="lang-en">Designed specifically for college freshmen. Featuring 18-week dual-language interactive slide decks, digital whiteboard tools, and 4,500+ word Word facilitation guides.</span>
         </p>
 
         <!-- Stats Grid -->
@@ -431,11 +461,11 @@
             </div>
             <div class="stat-card">
                 <div class="stat-number">540+</div>
-                <div class="stat-label"><span class="lang-zh">純教學簡報頁卡</span><span class="lang-en">Slide Cards</span></div>
+                <div class="stat-label"><span class="lang-zh">純教學簡報頁卡</span><span class="lang-en">Slide Deck Cards</span></div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">18</div>
-                <div class="stat-label"><span class="lang-zh">Word 教學手冊 (.docx)</span><span class="lang-en">Facilitation Guides</span></div>
+                <div class="stat-label"><span class="lang-zh">Word 教學手冊 (.docx)</span><span class="lang-en">Facilitation Guides (.docx)</span></div>
             </div>
         </div>
     </section>
@@ -445,14 +475,14 @@
         <div class="filter-wrapper">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" class="search-input" placeholder="搜尋關鍵字（例如：ETF, 股票, 稅務, AI, 通貨膨脹, 不動產, Web3, 期中, 期末）...">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋關鍵字 (例如：ETF, 股票, 稅務, AI, 通貨膨脹, 不動產, Web3, 期中, 期末) / Search keywords...">
             </div>
             <div class="module-tabs" id="moduleTabs">
                 <button class="tab-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> <span class="lang-zh">全部 18 週</span><span class="lang-en">All 18 Weeks</span></button>
-                <button class="tab-btn" data-filter="mod1"><i class="fa-solid fa-seedling"></i> <span class="lang-zh">模組一：理財基礎 (W1-4)</span><span class="lang-en">Mod 1: Basics</span></button>
-                <button class="tab-btn" data-filter="mod2"><i class="fa-solid fa-piggy-bank"></i> <span class="lang-zh">模組二：金融工具 (W5-8)</span><span class="lang-en">Mod 2: Tools & Banking</span></button>
-                <button class="tab-btn" data-filter="mod3"><i class="fa-solid fa-chart-line"></i> <span class="lang-zh">模組三：資產配置 (W9-12)</span><span class="lang-en">Mod 3: Wealth & Tax</span></button>
-                <button class="tab-btn" data-filter="mod4"><i class="fa-solid fa-rocket"></i> <span class="lang-zh">模組四：前瞻科技 (W13-18)</span><span class="lang-en">Mod 4: Tech & Future</span></button>
+                <button class="tab-btn" data-filter="mod1"><i class="fa-solid fa-seedling"></i> <span class="lang-zh">模組一：理財基礎 (W1-4)</span><span class="lang-en">Mod 1: Basics (W1-4)</span></button>
+                <button class="tab-btn" data-filter="mod2"><i class="fa-solid fa-piggy-bank"></i> <span class="lang-zh">模組二：金融工具 (W5-8)</span><span class="lang-en">Mod 2: Financial Tools (W5-8)</span></button>
+                <button class="tab-btn" data-filter="mod3"><i class="fa-solid fa-chart-line"></i> <span class="lang-zh">模組三：資產配置 (W9-12)</span><span class="lang-en">Mod 3: Wealth & Tax (W9-12)</span></button>
+                <button class="tab-btn" data-filter="mod4"><i class="fa-solid fa-rocket"></i> <span class="lang-zh">模組四：前瞻科技 (W13-18)</span><span class="lang-en">Mod 4: Tech & Future (W13-18)</span></button>
             </div>
         </div>
     </div>
@@ -465,46 +495,46 @@
             <div class="module-header">
                 <div class="module-icon"><i class="fa-solid fa-seedling"></i></div>
                 <h2 class="module-title">
-                    <span class="lang-zh">模組一：財經素養與理財基礎 (Module 1: Financial Literacy Basics)</span>
+                    <span class="lang-zh">模組一：財經素養與理財基礎</span>
                     <span class="lang-en">Module 1: Financial Literacy Basics (Weeks 1-4)</span>
                 </h2>
             </div>
             <div class="weeks-grid">
                 <!-- Week 1 -->
-                <div class="week-card" data-tags="W1 資訊爆炸 財經素養 信噪比 SNR 計算 標題重組 雜訊偵測">
+                <div class="week-card" data-tags="W1 資訊爆炸 財經素養 信噪比 SNR 計算 標題重組 雜訊偵測 Financial Literacy SNR">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-flag"></i> Week 01</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第一週：資訊爆炸時代的財經素養</span>
-                            <span class="lang-en">Week 1: Financial Literacy in Information Age</span>
+                            <span class="lang-en">Week 1: Financial Literacy in the Information Age</span>
                         </h3>
                         <p class="card-desc">
-                            <span class="lang-zh">在新聞與網紅雜訊中辨識真實訊號！學習信噪比 (SNR) 計算、新聞標題重組與雜訊偵測。</span>
-                            <span class="lang-en">Filtering noise from real market signals. Learning SNR calculation, headline audits & noise games.</span>
+                            <span class="lang-zh">在新聞與網紅雜訊中辨識真實訊號！學習信噪比 (SNR) 計算、新聞標題重組與雜訊偵測遊戲。</span>
+                            <span class="lang-en">Filter market noise from real signals. Learn Signal-to-Noise Ratio (SNR) calculation, headline audits & noise games.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">SNR Calculation</span>
                             <span class="mini-tag">30 Slides</span>
-                            <span class="mini-tag">Noise Detection</span>
+                            <span class="mini-tag">Noise Audit</span>
                         </div>
                     </div>
                     <div class="card-actions">
                         <a href="第一週_資訊爆炸時代的財經素養.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第一週_課程教學指引_資訊爆炸時代的財經素養.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第一週_課程教學指引_資訊爆炸時代的財經素養.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 2 -->
-                <div class="week-card" data-tags="W2 理財時代 經濟指標 GDP CPI 失業率 央行升降息 景氣燈號">
+                <div class="week-card" data-tags="W2 理財時代 經濟指標 GDP CPI 失業率 央行升降息 景氣燈號 Macroeconomics GDP CPI">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-chart-area"></i> Week 02</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第二週：理財時代與經濟指標</span>
-                            <span class="lang-en">Week 2: Financial Era & Economic Indicators</span>
+                            <span class="lang-en">Week 2: Financial Era & Macroeconomic Indicators</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">看不懂經濟指標就無法理財！解讀 GDP、CPI、失業率、央行升降息與國發會景氣燈號。</span>
-                            <span class="lang-en">Mastering macro indicators: GDP, CPI, Interest Rates, Unemployment & Economic Climate Lights.</span>
+                            <span class="lang-en">Mastering macroeconomic indicators: GDP, CPI, Interest Rates, Unemployment & Economic Climate Lights.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">GDP & CPI</span>
@@ -514,21 +544,21 @@
                     </div>
                     <div class="card-actions">
                         <a href="第二週_理財時代與經濟指標.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第二週_課程教學指引_理財時代與經濟指標.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第二週_課程教學指引_理財時代與經濟指標.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 3 -->
-                <div class="week-card" data-tags="W3 通貨膨脹 購買力 實質利率 72法則 實質所得">
+                <div class="week-card" data-tags="W3 通貨膨脹 購買力 實質利率 72法則 實質所得 Inflation Purchasing Power">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-scale-unbalanced"></i> Week 03</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第三週：通貨膨脹與購買力</span>
-                            <span class="lang-en">Week 3: Inflation & Purchasing Power</span>
+                            <span class="lang-en">Week 3: Inflation & Real Purchasing Power</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">錢放在銀行為什麼越存越小？計算通膨對購買力的侵蝕，掌握名目利率 vs 實質利率與 72 法則。</span>
-                            <span class="lang-en">Why savings shrink over time. Calculating inflation's erosion on purchasing power & Rule of 72.</span>
+                            <span class="lang-en">Why cash savings shrink over time. Calculating inflation's erosion on purchasing power & the Rule of 72.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">Inflation Erosion</span>
@@ -538,21 +568,21 @@
                     </div>
                     <div class="card-actions">
                         <a href="第三週_通貨膨脹與購買力.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第三週_課程教學指引_通貨膨脹與購買力.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第三週_課程教學指引_通貨膨脹與購買力.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 4 -->
-                <div class="week-card" data-tags="W4 股市入門 本益比 PE 企業估值 股利本益比 投資組合">
+                <div class="week-card" data-tags="W4 股市入門 本益比 PE 企業估值 股利本益比 投資組合 Stock Valuation PE">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-arrow-trend-up"></i> Week 04</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第四週：股市入門與企業價值估算</span>
-                            <span class="lang-en">Week 4: Stock Market Basics & Valuation</span>
+                            <span class="lang-en">Week 4: Stock Market Basics & Corporate Valuation</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">大一新鮮人第一堂股票課！看懂 K 線圖、本益比 (P/E Ratio)、殖利率與企業價值估算技巧。</span>
-                            <span class="lang-en">First stock market class for freshmen. Understanding Candlesticks, P/E Ratios & Valuation.</span>
+                            <span class="lang-en">First stock market class for freshmen. Understanding Candlesticks, P/E Ratios & Corporate Valuation.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">P/E Ratio</span>
@@ -562,7 +592,7 @@
                     </div>
                     <div class="card-actions">
                         <a href="第四週_股市入門與企業價值估算.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第四週_課程教學指引_股市入門與企業價值估算.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第四週_課程教學指引_股市入門與企業價值估算.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
             </div>
@@ -573,22 +603,22 @@
             <div class="module-header">
                 <div class="module-icon"><i class="fa-solid fa-piggy-bank"></i></div>
                 <h2 class="module-title">
-                    <span class="lang-zh">模組二：金融工具、儲蓄與信用 (Module 2: Financial Tools & Banking)</span>
+                    <span class="lang-zh">模組二：金融工具、儲蓄與信用</span>
                     <span class="lang-en">Module 2: Financial Tools & Banking (Weeks 5-8)</span>
                 </h2>
             </div>
             <div class="weeks-grid">
                 <!-- Week 5 -->
-                <div class="week-card" data-tags="W5 ETF 狂熱 主動型ETF 被動投資 指數追蹤 費用率 0050 0056">
+                <div class="week-card" data-tags="W5 ETF 狂熱 主動型ETF 被動投資 指數追蹤 費用率 Active Passive ETF">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-cubes"></i> Week 05</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第五週：ETF狂熱：主動型ETF與被動投資</span>
-                            <span class="lang-en">Week 5: ETF Mania: Active & Passive ETFs</span>
+                            <span class="lang-en">Week 5: ETF Mania: Active & Passive ETF Strategies</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">全台最熱門投資工具！拆解 ETF 運作機制、高股息 vs 市值型、主動型 ETF 與總費用率 (TER)。</span>
-                            <span class="lang-en">Taiwan's most popular tool! Active vs Passive ETFs, High-Dividend funds & Expense Ratios.</span>
+                            <span class="lang-en">Taiwan's most popular investment vehicle! Active vs Passive ETFs, High-Dividend funds & Expense Ratios.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">Active vs Passive</span>
@@ -598,21 +628,21 @@
                     </div>
                     <div class="card-actions">
                         <a href="第五週_ETF狂熱主動型ETF與被動投資.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第五週_課程教學指引_ETF狂熱主動型ETF與被動投資.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第五週_課程教學指引_ETF狂熱主動型ETF與被動投資.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 6 -->
-                <div class="week-card" data-tags="W6 數位金融 高利活存 純網行 數位帳戶 銀行業變革">
+                <div class="week-card" data-tags="W6 數位金融 高利活存 純網行 數位帳戶 銀行業變革 Digital Banking Savings">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-building-columns"></i> Week 06</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第六週：數位金融：高利活存與銀行業變革</span>
-                            <span class="lang-en">Week 6: Digital Banking & High-Yield Savings</span>
+                            <span class="lang-en">Week 6: Digital Banking & High-Yield Savings Accounts</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">新鮮人必備數位帳戶指南！解析高利活存優惠上限、純網銀 vs 傳統銀行數位帳戶優惠。</span>
-                            <span class="lang-en">Freshman guide to digital accounts: High-yield savings caps, Neobanks vs Traditional Banks.</span>
+                            <span class="lang-en">Freshman guide to digital banking: High-yield savings caps, Neobanks vs Traditional Banks.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">High-Yield Savings</span>
@@ -622,21 +652,21 @@
                     </div>
                     <div class="card-actions">
                         <a href="第六週_數位金融高利活存與銀行業變革.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第六週_課程教學指引_數位金融高利活存與銀行業變革.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第六週_課程教學指引_數位金融高利活存與銀行業變革.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 7 -->
-                <div class="week-card" data-tags="W7 信用評分 JCIC 聯徵中心 信用卡 分期付款 借貸風險">
+                <div class="week-card" data-tags="W7 信用評分 JCIC 聯徵中心 信用卡 分期付款 借貸風險 Credit Score JCIC">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-credit-card"></i> Week 07</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第七週：個人信用評分變動與借貸風險</span>
-                            <span class="lang-en">Week 7: Credit Scores & Borrowing Risks</span>
+                            <span class="lang-en">Week 7: Credit Scores & Borrowing Risk Management</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">維護個人的第二張身分證！JCIC 聯徵分數計算、信用卡循環利息陷阱與建立良好信用歷史。</span>
-                            <span class="lang-en">Protecting your financial reputation. JCIC Credit Scores, credit card interest traps & credit history.</span>
+                            <span class="lang-en">Protecting your financial identity. JCIC Credit Scores, credit card interest traps & credit history.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">JCIC Score</span>
@@ -646,21 +676,21 @@
                     </div>
                     <div class="card-actions">
                         <a href="第七週_個人信用評分變動與借貸風險.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第七週_課程教學指引_個人信用評分變動與借貸風險.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第七週_課程教學指引_個人信用評分變動與借貸風險.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 8 -->
-                <div class="week-card" data-tags="W8 期中檢核 實戰個案 總複習 財經複習 觀念測驗">
+                <div class="week-card" data-tags="W8 期中檢核 實戰個案 總複習 財經複習 觀念測驗 Midterm Review Case">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-clipboard-check"></i> Week 08</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第八週：期中學習成果檢核與實戰個案總複習</span>
-                            <span class="lang-en">Week 8: Midterm Review & Case Studies</span>
+                            <span class="lang-en">Week 8: Midterm Assessment & Practical Case Studies</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">前半學期觀念整合大考驗！小組實戰個案診斷、通爆/股票/ETF/信用盲點檢視與反思。</span>
-                            <span class="lang-en">Midterm integration! Group case diagnoses reviewing inflation, stocks, ETFs & credit pitfalls.</span>
+                            <span class="lang-en">Midterm integration challenge! Group case diagnoses reviewing inflation, stocks, ETFs & credit pitfalls.</span>
                         </p>
                         <div class="tags-list">
                             <span class="mini-tag">Midterm Review</span>
@@ -670,7 +700,7 @@
                     </div>
                     <div class="card-actions">
                         <a href="第八週_期中學習成果檢核與實戰個案總複習.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第八週_課程教學指引_期中學習成果檢核與實戰個案總複習.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第八週_課程教學指引_期中學習成果檢核與實戰個案總複習.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
             </div>
@@ -681,18 +711,18 @@
             <div class="module-header">
                 <div class="module-icon"><i class="fa-solid fa-chart-line"></i></div>
                 <h2 class="module-title">
-                    <span class="lang-zh">模組三：資產配置與稅務規劃 (Module 3: Wealth & Tax Planning)</span>
+                    <span class="lang-zh">模組三：資產配置與稅務規劃</span>
                     <span class="lang-en">Module 3: Wealth & Tax Planning (Weeks 9-12)</span>
                 </h2>
             </div>
             <div class="weeks-grid">
                 <!-- Week 9 -->
-                <div class="week-card" data-tags="W9 保險基礎 風險管理 個人保障規劃 人壽保險 實支實付 健康險">
+                <div class="week-card" data-tags="W9 保險基礎 風險管理 個人保障規劃 人壽保險 實支實付 健康險 Insurance Risk">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-shield-halved"></i> Week 09</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第九週：保險基礎風險管理與個人保障規劃</span>
-                            <span class="lang-en">Week 9: Insurance Basics & Risk Management</span>
+                            <span class="lang-en">Week 9: Insurance Fundamentals & Personal Risk Protection</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">建構財務安全的護城河！解析保險三大功能、人壽/醫療/實支實付理賠與大一保單規劃。</span>
@@ -706,17 +736,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第九週_保險基礎風險管理與個人保障規劃.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第九週_課程教學指引_保險基礎風險管理與個人保障規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第九週_課程教學指引_保險基礎風險管理與個人保障規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 10 -->
-                <div class="week-card" data-tags="W10 不動產 房地產 租買決策 房貸試算 房價負擔能力 租金回報率">
+                <div class="week-card" data-tags="W10 不動產 房地產 租買決策 房貸試算 房價負擔能力 租金回報率 Real Estate Rent Buy">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-house"></i> Week 10</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第十週：不動產房地產與租買決策財務學</span>
-                            <span class="lang-en">Week 10: Real Estate: Rent vs Buy Decisions</span>
+                            <span class="lang-en">Week 10: Real Estate: Rent vs. Buy Decision Financials</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">年輕人到底該買房還是租房？計算房貸負擔率、租金回報率、頭期款籌措與機會成本。</span>
@@ -730,17 +760,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十週_不動產房地產與租買決策財務學.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十週_課程教學指引_不動產房地產與租買決策財務學.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十週_課程教學指引_不動產房地產與租買決策財務學.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 11 -->
-                <div class="week-card" data-tags="W11 所得稅 節稅 報稅 免稅額 扣除額 稅率級距">
+                <div class="week-card" data-tags="W11 所得稅 節稅 報稅 免稅額 扣除額 稅率級距 Income Tax Filing">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-file-invoice-dollar"></i> Week 11</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十一週：個人綜合所得稅節稅規劃與報稅</span>
-                            <span class="lang-en">Week 11: Personal Income Tax Planning</span>
+                            <span class="lang-zh">第十一週：個人綜合所得稅節稅規劃與報稅實務</span>
+                            <span class="lang-en">Week 11: Personal Income Tax Planning & Tax Filing</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">社會新人必修第一堂課！理解綜合所得稅計算、免稅額/標準扣除額/特別扣除額與合法節稅。</span>
@@ -754,17 +784,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十一週_個人綜合所得稅節稅規劃與報稅實務.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十一週_課程教學指引_個人綜合所得稅節稅規劃與報稅實務.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十一週_課程教學指引_個人綜合所得稅節稅規劃與報稅實務.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 12 -->
-                <div class="week-card" data-tags="W12 資產負債表 現金流 生涯理財 淨資產 記帳管理">
+                <div class="week-card" data-tags="W12 資產負債表 現金流 生涯理財 淨資產 記帳管理 Balance Sheet Cash Flow">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-receipt"></i> Week 12</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十二週：資產負債表與現金流管理</span>
-                            <span class="lang-en">Week 12: Personal Balance Sheet & Cash Flow</span>
+                            <span class="lang-zh">第十二週：個人與家庭資產負債表、現金流管理與生涯理財規劃</span>
+                            <span class="lang-en">Week 12: Personal Balance Sheets & Life-Cycle Financial Planning</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">建立個人專屬的財務報表！編製個人資產負債表、追蹤自由現金流與 20-30-40 生涯理財比例。</span>
@@ -778,7 +808,7 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十二週_個人與家庭資產負債表現金流管理與生涯理財規劃.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十二週_課程教學指引_個人與家庭資產負債表現金流管理與生涯理財規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十二週_課程教學指引_個人與家庭資產負債表現金流管理與生涯理財規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
             </div>
@@ -789,18 +819,18 @@
             <div class="module-header">
                 <div class="module-icon"><i class="fa-solid fa-rocket"></i></div>
                 <h2 class="module-title">
-                    <span class="lang-zh">模組四：前瞻科技、永續與期末大結業 (Module 4: Tech & Future Synthesis)</span>
+                    <span class="lang-zh">模組四：前瞻科技、永續與期末大結業</span>
                     <span class="lang-en">Module 4: Tech & Future Synthesis (Weeks 13-18)</span>
                 </h2>
             </div>
             <div class="weeks-grid">
                 <!-- Week 13 -->
-                <div class="week-card" data-tags="W13 半導體 台積電 TSMC 科技供應鏈 晶圓代工 護國神山">
+                <div class="week-card" data-tags="W13 半導體 台積電 TSMC 科技供應鏈 晶圓代工 護國神山 Semiconductor TSMC">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-microchip"></i> Week 13</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十三週：半導體產業台積電與台灣科技供應鏈</span>
-                            <span class="lang-en">Week 13: Semiconductor Industry & TSMC</span>
+                            <span class="lang-zh">第十三週：半導體產業護國神山台積電與台灣科技供應鏈</span>
+                            <span class="lang-en">Week 13: Semiconductor Industry, TSMC & Tech Supply Chains</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">深入剖析護國神山台積電！晶圓代工商業模式、半導體上中下游產業鏈與全球競爭優勢。</span>
@@ -814,17 +844,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十三週_半導體產業護國神山台積電與台灣科技供應鏈.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十三週_課程教學指引_半導體產業護國神山台積電與台灣科技供應鏈.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十三週_課程教學指引_半導體產業護國神山台積電與台灣科技供應鏈.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 14 -->
-                <div class="week-card" data-tags="W14 生成式AI 人工智慧 職場轉型 生產力 算力經濟 Nvidia">
+                <div class="week-card" data-tags="W14 生成式AI 人工智慧 職場轉型 生產力 算力經濟 Nvidia Generative AI Career">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-robot"></i> Week 14</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十四週：生成式AI革命與未來職場轉型</span>
-                            <span class="lang-en">Week 14: Generative AI & Career Transformation</span>
+                            <span class="lang-zh">第十四週：生成式AI革命、人工智慧產業鏈與未來職場轉型</span>
+                            <span class="lang-en">Week 14: Generative AI Revolution & Workplace Transformation</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">AI 如何改變未來的職場與產業？分析生成式 AI 工具、算力經濟、Nvidia 與新鮮人關鍵能力。</span>
@@ -838,16 +868,16 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十四週_生成式AI革命人工智慧產業鏈與未來職場轉型.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十四週_課程教學指引_生成式AI革命人工智慧產業鏈與未來職場轉型.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十四週_課程教學指引_生成式AI革命人工智慧產業鏈與未來職場轉型.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 15 -->
-                <div class="week-card" data-tags="W15 綠色金融 ESG 永續投資 碳定價 碳交易 CBAM">
+                <div class="week-card" data-tags="W15 綠色金融 ESG 永續投資 碳定價 碳交易 CBAM Green Finance ESG">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-leaf"></i> Week 15</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十五週：綠色金融ESG永續投資與碳定價</span>
+                            <span class="lang-zh">第十五週：綠色金融、ESG永續投資與碳定價經濟學</span>
                             <span class="lang-en">Week 15: Green Finance, ESG Investing & Carbon Pricing</span>
                         </h3>
                         <p class="card-desc">
@@ -862,17 +892,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十五週_綠色金融ESG永續投資與碳定價經濟學.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十五週_課程教學指引_綠色金融ESG永續投資與碳定價經濟學.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十五週_課程教學指引_綠色金融ESG永續投資與碳定價經濟學.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 16 -->
-                <div class="week-card" data-tags="W16 加密貨幣 區塊鏈 Web3 數位資產 比特幣 詐騙防範">
+                <div class="week-card" data-tags="W16 加密貨幣 區塊鏈 Web3 數位資產 比特幣 詐騙防範 Crypto Blockchain Web3">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-link"></i> Week 16</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第十六週：加密貨幣區塊鏈Web3與數位資產</span>
-                            <span class="lang-en">Week 16: Cryptocurrency, Blockchain & Web3 Risk</span>
+                            <span class="lang-zh">第十六週：加密貨幣、區塊鏈基礎Web3與數位資產風險</span>
+                            <span class="lang-en">Week 16: Cryptocurrencies, Blockchain Web3 & Digital Asset Risks</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">正視新世代數位資產風險！區塊鏈去中心化原理、加密貨幣波動性、Web3 應用與詐騙防範。</span>
@@ -886,17 +916,17 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十六週_加密貨幣區塊鏈基礎Web3與數位資產風險.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十六週_課程教學指引_加密貨幣區塊鏈基礎Web3與數位資產風險.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十六週_課程教學指引_加密貨幣區塊鏈基礎Web3與數位資產風險.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 17 -->
-                <div class="week-card" data-tags="W17 期末專案 簡報發表 實戰 Pitch 評分量表 簡報技巧">
+                <div class="week-card" data-tags="W17 期末專案 簡報發表 實戰 Pitch 評分量表 簡報技巧 Capstone Pitch">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-chalkboard-user"></i> Week 17</span>
                         <h3 class="card-title">
                             <span class="lang-zh">第十七週：期末專案發表實戰財經簡報與總評量</span>
-                            <span class="lang-en">Week 17: Final Project Presentations & Pitching</span>
+                            <span class="lang-en">Week 17: Final Project Capstone Presentations & Pitching</span>
                         </h3>
                         <p class="card-desc">
                             <span class="lang-zh">大一新鮮人的第一次實戰 Pitch！小組報告財經與理財專案、專業簡報架構與同儕互評。</span>
@@ -910,12 +940,12 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十七週_期末專案發表實戰財經簡報與總評量.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十七週_課程教學指引_期末專案發表實戰財經簡報與總評量.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十七週_課程教學指引_期末專案發表實戰財經簡報與總評量.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
 
                 <!-- Week 18 -->
-                <div class="week-card" data-tags="W18 大結業 探索藍圖 終身宣言 理財地圖 新鮮人宣言">
+                <div class="week-card" data-tags="W18 大結業 探索藍圖 終身宣言 理財地圖 新鮮人宣言 Graduation Roadmap">
                     <div class="card-top">
                         <span class="card-week-badge"><i class="fa-solid fa-trophy"></i> Week 18</span>
                         <h3 class="card-title">
@@ -934,7 +964,7 @@
                     </div>
                     <div class="card-actions">
                         <a href="第十八週_學期總結財經探索藍圖與大一新鮮人終身宣言.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第十八週_課程教學指引_學期總結財經探索藍圖與大一新鮮人終身宣言.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第十八週_課程教學指引_學期總結財經探索藍圖與大一新鮮人終身宣言.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide (.docx)</span></a>
                     </div>
                 </div>
             </div>
@@ -946,10 +976,10 @@
     <footer class="portal-footer">
         <div class="footer-brand">
             <i class="fa-solid fa-frog glow-icon" style="color:#10b981;"></i>
-            <span>11501 管理探索二：財金蛙挖哇 18 週課程總覽平台</span>
+            <span><span class="lang-zh">11501 管理探索二：財金蛙挖哇 18 週課程總覽平台</span><span class="lang-en">11501 Management Discovery II 18-Week Curriculum Portal</span></span>
         </div>
-        <p><span class="lang-zh">© 2026 11501 管理探索二：財金蛙挖哇 18 週整合總覽平台 • 版權所有</span>
-        <span class="lang-en">© 2026 Management Discovery II 18-Week Curriculum Portal • All Rights Reserved.</span></p>
+        <p><span class="lang-zh">© 2026 11501 管理探索二：財金蛙挖哇 18 週雙語整合總覽平台 • 版權所有</span>
+        <span class="lang-en">© 2026 Management Discovery II 18-Week Bilingual Integration Portal • All Rights Reserved.</span></p>
     </footer>
 
     <!-- Filter & Search JavaScript -->
@@ -962,16 +992,16 @@
             const langToggleBtn = document.getElementById('langToggleBtn');
             const langDisplay = document.getElementById('langDisplay');
 
-            // Bilingual Switcher
+            // Pure Bilingual Switcher: 中文就是中文、英文就是英文
             langToggleBtn.addEventListener('click', () => {
                 if (document.body.classList.contains('lang-zh')) {
                     document.body.classList.remove('lang-zh');
                     document.body.classList.add('lang-en');
-                    langDisplay.textContent = 'EN / 中';
+                    langDisplay.textContent = 'English / 繁體中文';
                 } else {
                     document.body.classList.remove('lang-en');
                     document.body.classList.add('lang-zh');
-                    langDisplay.textContent = '中 / EN';
+                    langDisplay.textContent = '繁體中文 / English';
                 }
             });
 

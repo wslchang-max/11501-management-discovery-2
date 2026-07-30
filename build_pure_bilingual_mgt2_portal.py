@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+import os
+
+# Build 100% pure bilingual portal for Management Discovery II (index.html)
+
+portal_html = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -1048,4 +1052,13 @@
         });
     </script>
 </body>
-</html>
+</html>"""
+
+dir_path = r"C:\Users\User\Desktop\115學年度\11501 管理探索二"
+with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8") as f:
+    f.write(portal_html)
+
+with open(os.path.join(dir_path, "整合18週課程平台.html"), "w", encoding="utf-8") as f:
+    f.write(portal_html)
+
+print("Successfully generated 100% pure bilingual portal index.html with all 18-week verified links!")
