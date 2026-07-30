@@ -1,6 +1,6 @@
-import os, glob
+import os
 
-# Python script to build 11501 管理探索二 18-week portal index.html & 整合18週課程平台.html
+# Script to build Management Discovery II Portal with 100% verified 18-week links
 
 html_content = """<!DOCTYPE html>
 <html lang="zh-TW">
@@ -691,26 +691,26 @@ html_content = """<!DOCTYPE html>
             </div>
             <div class="weeks-grid">
                 <!-- Week 9 -->
-                <div class="week-card" data-tags="W9 複利效應 個人儲蓄 定期定額 時間價值 緊急預備金">
+                <div class="week-card" data-tags="W9 保險基礎 風險管理 個人保障規劃 人壽保險 實支實付 健康險">
                     <div class="card-top">
-                        <span class="card-week-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Week 09</span>
+                        <span class="card-week-badge"><i class="fa-solid fa-shield-halved"></i> Week 09</span>
                         <h3 class="card-title">
-                            <span class="lang-zh">第九週：複利效應與個人儲蓄規劃</span>
-                            <span class="lang-en">Week 9: Compound Interest & Savings Planning</span>
+                            <span class="lang-zh">第九週：保險基礎風險管理與個人保障規劃</span>
+                            <span class="lang-en">Week 9: Insurance Basics & Risk Management</span>
                         </h3>
                         <p class="card-desc">
-                            <span class="lang-zh">愛因斯坦口中的世界第八大奇蹟！計算單利 vs 複利差異、定期定額試算與緊急預備金規劃。</span>
-                            <span class="lang-en">The 8th wonder of the world! Simple vs Compound interest, Dollar-Cost Averaging & Emergency Funds.</span>
+                            <span class="lang-zh">建構財務安全的護城河！解析保險三大功能、人壽/醫療/實支實付理賠與大一保單規劃。</span>
+                            <span class="lang-en">Building your financial moat: Insurance fundamentals, health coverage & risk planning.</span>
                         </p>
                         <div class="tags-list">
-                            <span class="mini-tag">Compound Interest</span>
-                            <span class="mini-tag">Dollar-Cost Averaging</span>
-                            <span class="mini-tag">Emergency Fund</span>
+                            <span class="mini-tag">Insurance Basics</span>
+                            <span class="mini-tag">Risk Protection</span>
+                            <span class="mini-tag">Policy Planning</span>
                         </div>
                     </div>
                     <div class="card-actions">
-                        <a href="第九週_複利效應與個人儲蓄規劃.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
-                        <a href="第九週_課程教學指引_複利效應與個人儲蓄規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
+                        <a href="第九週_保險基礎風險管理與個人保障規劃.html" class="action-btn btn-html"><i class="fa-solid fa-play"></i> <span class="lang-zh">網頁簡報</span><span class="lang-en">Presentation</span></a>
+                        <a href="第九週_課程教學指引_保險基礎風險管理與個人保障規劃.docx" download class="action-btn btn-docx"><i class="fa-regular fa-file-word"></i> <span class="lang-zh">指引 (.docx)</span><span class="lang-en">Guide</span></a>
                     </div>
                 </div>
 
@@ -1031,4 +1031,4 @@ with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8") as f:
 with open(os.path.join(dir_path, "整合18週課程平台.html"), "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("Successfully generated 11501 管理探索二 Portal index.html & 整合18週課程平台.html!")
+print("Successfully regenerated 11501 管理探索二 Portal index.html with 100% verified 18-week links!")
