@@ -1,6 +1,6 @@
 import os, glob
 
-# Python script to build 100% verified bilingual portal with EXACT filenames on disk
+# Build 100% pure bilingual portal with ZIP Download & GitHub Repo Links for Management Discovery II
 
 os.chdir(r"C:\Users\User\Desktop\115學年度\11501 管理探索二")
 
@@ -224,7 +224,6 @@ for item in weeks_data:
     item["html_file"] = matching_html[0] if matching_html else "#"
     item["docx_file"] = matching_docx[0] if matching_docx else "#"
 
-# Group by modules for rendering HTML
 modules_data = {
     "mod1": {
         "icon": "fa-seedling",
@@ -304,7 +303,7 @@ full_html = f"""<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11501 管理探索二：財金蛙挖哇 | 18 週雙語整合總覽平台</title>
+    <title>11501 管理探索二：財金蛙挖哇 | 18 週雙語整合總覽與下載平台</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -370,12 +369,56 @@ full_html = f"""<!DOCTYPE html>
             line-height: 1.6;
         }}
 
+        .hero-download-bar {{
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }}
+
+        .hero-download-btn {{
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }}
+
+        .hero-download-btn.zip-btn {{
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+        }}
+
+        .hero-download-btn.zip-btn:hover {{
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+            filter: brightness(1.1);
+        }}
+
+        .hero-download-btn.repo-btn {{
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+        }}
+
+        .hero-download-btn.repo-btn:hover {{
+            background: rgba(255, 255, 255, 0.18);
+            border-color: #ffffff;
+            transform: translateY(-3px);
+        }}
+
         .hero-stats-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
             max-width: 1000px;
-            margin: 0 auto 40px;
+            margin: 0 auto;
         }}
 
         .stat-card {{
@@ -718,14 +761,14 @@ full_html = f"""<!DOCTYPE html>
             </div>
         </div>
         <div class="header-right">
+            <a href="https://github.com/wslchang-max/11501-management-discovery-2/archive/refs/heads/main.zip" class="btn btn-secondary" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:#fff; border:none;" title="下載全套 18 週課程資料夾 ZIP">
+                <i class="fa-solid fa-file-zipper"></i> <span class="lang-zh">打包下載 (.zip)</span><span class="lang-en">Download Zip</span>
+            </a>
             <button class="lang-switch-btn" id="langToggleBtn" title="切換語言 / Switch Language">
                 <i class="fa-solid fa-globe"></i> <span id="langDisplay">繁體中文 / English</span>
             </button>
             <a href="https://www.google.com/finance" target="_blank" class="btn btn-secondary" title="Google Finance Market Data">
                 <i class="fa-solid fa-chart-line"></i> <span class="lang-zh">財經數據庫</span><span class="lang-en">Google Finance</span>
-            </a>
-            <a href="https://www.stat.gov.tw/" target="_blank" class="btn btn-secondary" title="National Statistics DGBAS">
-                <i class="fa-solid fa-building-columns"></i> <span class="lang-zh">國家統計局</span><span class="lang-en">DGBAS Stats</span>
             </a>
         </div>
     </header>
@@ -749,6 +792,20 @@ full_html = f"""<!DOCTYPE html>
             <span class="lang-zh">專為大一新鮮人量身打造之生活化財經素養與理財探索全景課程！包含 18 週 540+ 頁雙語簡報卡片、畫布手繪書寫工具與 4,500+ 字深度 Word 教學手冊！</span>
             <span class="lang-en">Designed specifically for college freshmen. Featuring 18-week dual-language interactive slide decks, digital whiteboard tools, and 4,500+ word Word facilitation guides.</span>
         </p>
+
+        <!-- Hero Download Action Buttons -->
+        <div class="hero-download-bar">
+            <a href="https://github.com/wslchang-max/11501-management-discovery-2/archive/refs/heads/main.zip" class="hero-download-btn zip-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+                <span class="lang-zh">一鍵打包下載 18 週完整課程資料夾 (.zip)</span>
+                <span class="lang-en">Download Complete 18-Week Course Package (.zip)</span>
+            </a>
+            <a href="https://github.com/wslchang-max/11501-management-discovery-2" target="_blank" class="hero-download-btn repo-btn">
+                <i class="fa-brands fa-github"></i>
+                <span class="lang-zh">瀏覽 GitHub 完整開放資源庫</span>
+                <span class="lang-en">Explore Open GitHub Repository</span>
+            </a>
+        </div>
 
         <!-- Stats Grid -->
         <div class="hero-stats-grid">
@@ -799,8 +856,8 @@ full_html = f"""<!DOCTYPE html>
             <i class="fa-solid fa-frog glow-icon" style="color:#10b981;"></i>
             <span><span class="lang-zh">11501 管理探索二：財金蛙挖哇 18 週課程總覽平台</span><span class="lang-en">11501 Management Discovery II 18-Week Curriculum Portal</span></span>
         </div>
-        <p><span class="lang-zh">© 2026 11501 管理探索二：財金蛙挖哇 18 週雙語整合總覽平台 • 版權所有</span>
-        <span class="lang-en">© 2026 Management Discovery II 18-Week Bilingual Integration Portal • All Rights Reserved.</span></p>
+        <p><span class="lang-zh">© 2026 11501 管理探索二：財金蛙挖哇 18 週雙語整合總覽與下載平台 • 版權所有</span>
+        <span class="lang-en">© 2026 Management Discovery II 18-Week Bilingual Integration & Download Portal • All Rights Reserved.</span></p>
     </footer>
 
     <!-- Filter & Search JavaScript -->
@@ -877,4 +934,4 @@ with open("index.html", "w", encoding="utf-8") as f:
 with open("整合18週課程平台.html", "w", encoding="utf-8") as f:
     f.write(full_html)
 
-print("Successfully generated index.html with 100% PERFECT EXACT DISK FILENAMES!")
+print("Successfully regenerated index.html with Zip Download Button & GitHub Repo Link!")
