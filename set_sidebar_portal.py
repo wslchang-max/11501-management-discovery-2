@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import os
+
+portal_code = """<!DOCTYPE html>
 <html lang="zh-TW">
   <head>
     <meta charset="UTF-8">
@@ -393,3 +395,13 @@
     </script>
   </body>
 </html>
+"""
+
+dir_path = r"C:\Users\User\Desktop\115學年度\11501 管理探索二"
+with open(os.path.join(dir_path, "index.html"), "w", encoding="utf-8") as f:
+    f.write(portal_code)
+
+with open(os.path.join(dir_path, "整合18週課程平台.html"), "w", encoding="utf-8") as f:
+    f.write(portal_code)
+
+print("Successfully set sidebar navigation portal as default index.html and 整合18週課程平台.html!")
